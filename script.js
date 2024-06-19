@@ -16,6 +16,8 @@ document.getElementById("Mike").addEventListener("click", function () {
 
 document.getElementById("X2").addEventListener("click", function () {
     ajouterMultiplicateur(2);
+    if (score <= 100) {   
+    }
 })
 
 document.getElementById("X3").addEventListener("click", function () {
@@ -24,6 +26,7 @@ document.getElementById("X3").addEventListener("click", function () {
 
 document.getElementById("X4").addEventListener("click", function () {
     ajouterMultiplicateur(4);
+    score -= 1000;
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {

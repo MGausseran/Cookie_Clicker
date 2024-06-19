@@ -16,8 +16,7 @@ document.getElementById("Mike").addEventListener("click", function () {
 
 document.getElementById("X2").addEventListener("click", function () {
     ajouterMultiplicateur(2);
-    if (score <= 100) {
-        
+    if (score <= 100) {   
     }
 })
 

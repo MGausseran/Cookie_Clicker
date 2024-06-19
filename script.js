@@ -1,36 +1,32 @@
 let multiplicateur = 1;
 let scoreParClic = 1;
-let score = document.getElementById("points").textContent;
+let score = parseInt(document.getElementById("points").textContent);
 
-document.getElementById("Mike").addEventListener("click", function(){
-    score++
+function ajouterMultiplicateur(valeur) {
+    multiplicateur *= valeur;
+    alert("Votre multiplicateur actuel est de :" + multiplicateur);
+}
+
+document.getElementById("Mike").addEventListener("click", function () {
+    score += scoreParClic * multiplicateur;
     document.getElementById("points").textContent = score;
     console.log(score)
 }
 )
 
-document.getElementById("X2").addEventListener("click", function(){
-    multiplicateur+=2;
-    console.log(multiplicateur);
-    scoreParClic*=multiplicateur
-    console.log(scoreParClic)
+document.getElementById("X2").addEventListener("click", function () {
+    ajouterMultiplicateur(2);
 })
-document.getElementById("X3").addEventListener("click", function(){
-    multiplicateur+=3;
-    console.log(multiplicateur);
-    scoreParClic*=multiplicateur
-    console.log(scoreParClic)
+
+document.getElementById("X3").addEventListener("click", function () {
+    ajouterMultiplicateur(3);
 })
-document.getElementById("X4").addEventListener("click", function(){
-    multiplicateur+=4;
-    console.log(multiplicateur);
-    scoreParClic*=multiplicateur
-    console.log(scoreParClic)
+
+document.getElementById("X4").addEventListener("click", function () {
+    ajouterMultiplicateur(4);
 })
-document.getElementById("XBonus").addEventListener("click", function(){
-    multiplicateur+=200;
-    console.log(multiplicateur);
-    scoreParClic*=multiplicateur
-    console.log(scoreParClic)
+
+document.getElementById("XBonus").addEventListener("click", function () {
+    ajouterMultiplicateur(200)
     setTimeout(30000);
 })

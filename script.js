@@ -7,6 +7,7 @@ let prixMultiX2 = 5;
 let prixMultiX3 = 500;
 let prixMultiX4 = 1000;
 let prixBonus = 5000;
+let prixAutoclic = 12000;
 
 /*Pour chaque multiplicateur (identifié ici selon la valeur), son prix sera multiplié par sa valeur au clic sur le bouton*/
 
@@ -24,6 +25,7 @@ function verifierBoutons() {
     document.getElementById("X3").disabled = score < prixMultiX3;
     document.getElementById("X4").disabled = score < prixMultiX4;
     document.getElementById("XBonus").disabled = score < prixBonus;
+    document.getElementById("Autoclic").disabled = score < prixAutoclic;
 }
 
 setInterval(verifierBoutons, 100);
@@ -72,7 +74,19 @@ document.getElementById("X4").addEventListener("click", function () {
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
-    ajouterMultiplicateur(200, prixBonus);
-    augmenterPrix(200)
-    setTimeout(30000);
-})
+    if (score >= prixBonus) {
+        score -= prixBonus;
+        alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
+        let originalMultiplicateur = multiplicateur;
+        multiplicateur *= 2; // Augmenter le multiplicateur de 200%
+        
+        setTimeout(function () {
+            multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
+            alert("Le bonus de 200% est terminé.");
+        }, 30000);
+
+        augmenterPrix(200);
+    } else {
+        alert("Vous n'avez pas assez de Mikes pour acheter ce bonus !");
+
+});

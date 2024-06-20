@@ -74,19 +74,14 @@ document.getElementById("X4").addEventListener("click", function () {
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
-    if (score >= prixBonus) {
-        score -= prixBonus;
-        alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
-        let originalMultiplicateur = multiplicateur;
-        multiplicateur *= 2; // Augmenter le multiplicateur de 200%
-        
-        setTimeout(function () {
-            multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
-            alert("Le bonus de 200% est terminé.");
-        }, 30000);
+    alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
+    let originalMultiplicateur = multiplicateur;
+    multiplicateur *= 2; 
 
-        augmenterPrix(200);
-    } else {
-        alert("Vous n'avez pas assez de Mikes pour acheter ce bonus !");
+    setTimeout(function () {
+        multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
+        alert("Le bonus de 200% est terminé.");
+    }, 30000);
 
+    augmenterPrix(200);
 });

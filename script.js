@@ -17,6 +17,8 @@ function augmenterPrix(valeur) {
     if (valeur === 200) prixBonus *= 200;
 }
 
+/*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
+/*S'il est trop bas, le bouton d'achat est désactivé*/
 function verifierBoutons() {
     document.getElementById("X2").disabled = score < prixMultiX2;
     document.getElementById("X3").disabled = score < prixMultiX3;

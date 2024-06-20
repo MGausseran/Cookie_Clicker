@@ -102,7 +102,7 @@ document.getElementById("Autoclic").addEventListener("click", function () {
         score -= prixAutoclic;
         document.getElementById("points").textContent = score;
         activerAutoClic();
-        augmenterPrix("autoClic");
+        augmenterPrix(500);
         alert("Clic automatique activé ! Un clic sera ajouté toutes les " + (intervalAutoClic / 1000) + " secondes.");
     } else {
         alert("Vous n'avez pas assez de Mikes pour acheter le clic automatique !");

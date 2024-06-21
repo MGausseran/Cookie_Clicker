@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <link rel="icon" type="image/png" href="image/Mike_Button.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./output.css">
+  <title>Mike Clicker</title>
+  <script src="script.js" defer></script>
+</head>
+<body class="w-screen bg-darkblue">
+  <main class="sm:container mx-auto flex m-6 h-[863px]">
+    <section class="ScoreMike w-[755px] mr-3 h-full border-2 border-white border-solid rounded-3xl">
+      <article class="setting-windows flex justify-end items-center border-b-2 h-[49px] w-full">
+        <img src="image/reduire_icon.svg" alt="icon de reduction" class="mr-3.5">
+        <img src="image/full_width.svg" alt="full width windows" class="mr-3.5">
+        <a href="index.html">
+          <img src="image/closing_windows.svg" alt="closing windows" class="mr-5">
+        </a>
+      </article>
+      <article class="h-[253px] w-[705px] border-2 border-white border-solid rounded-3xl m-6 flex flex-col items-center justify-center">
+        <h1 class="text-white font-medium text-[150px] h-[130px] leading-none inline mb-5" id="points">00</h1>
+        <h2 class="text-white font-medium text-4xl leading-none uppercase inline mb-0.5">Score</h2>
+        <p class="text-white font-medium text-lg uppercase leading-none">sec/ <span id="scoreBySec">0</span></p>
+      </article>
+      <article class="h-[491px] w-[705px] border-2 border-white border-solid rounded-3xl m-6 flex justify-center items-center">
+        <img src="image/Mike_Button.png" alt="Mike_Button" id="Mike">
+      </article>
+    </section>
+    <section class="Upgrade w-[755px] ml-3">
+      <article class="inventory border-2 h-[314px] border-2border-white border-solid rounded-3xl mb-6">
+
+        <section class="setting-windows flex justify-end items-center border-b-2 h-[49px] w-full">
+          <img src="image/reduire_icon.svg" alt="icon de reduction" class="mr-3.5">
+          <img src="image/full_width.svg" alt="full width windows" class="mr-3.5">
+          <a href="index.html">
+            <img src="image/closing_windows.svg" alt="closing windows" class="mr-5">
+          </a>
+        </section>
+        <section class="overflow-y-auto w-[751px] p-0 m-0">
+          <button class="button bg-lightblue px-[22px] pt-1 w-[699px] rounded-2xl mx-6 mt-6 flex justify-between items-center" type="button" id="X1">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">BECODIEN</h1>
+            <p class="text-white font-medium text-[71px] leading-none">1</p>
+          </button>
+          <button class="button bg-lightblue px-[22px] pt-1 w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="X2">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">SAINT CHAISE</h1>
+            <p class="text-white font-medium text-[71px] leading-none">1</p>
+          </button>
+        </section>
+      </article>
+      <article class="shop border-2 h-[525px] border-white border-solid rounded-3xl">
+        <section class="setting-windows flex justify-end items-center border-b-2 h-[49px] w-full">
+          <img src="image/reduire_icon.svg" alt="icon de reduction" class="mr-3.5">
+          <img src="image/full_width.svg" alt="full width windows" class="mr-3.5">
+          <a href="index.html">
+            <img src="image/closing_windows.svg" alt="closing windows" class="mr-5">
+          </a>
+        </section>
+        <section class="overflow-y-auto h-[472px] w-[751px]">
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-6 flex justify-between items-center" type="button" id="X1">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">BECODIEN</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">500</p>
+            </article>
+          </button>
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="X2">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">SAINT CHAISE</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">1500</p>
+            </article>
+          </button>
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="X3">
+            <h1 class="text-[26px] font-medium text-white leading-none">GPT-4o</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">2500</p>
+            </article>
+          </button>
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="X4">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">COACH MAN</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">5000</p>
+            </article>
+          </button>
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="XBonus">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">HAPPY HOURS PORTE NOIR</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">10,000</p>
+            </article>
+          </button>
+          <button class="button bg-lightblue px-[22px] py-[23px] w-[699px] rounded-2xl mx-6 mt-3 flex justify-between items-center" type="button" id="XBonus">
+            <h1 class="text-[26px] font-medium text-white uppercase leading-none">Auto clicker</h1>
+            <article class="flex">
+              <img src="image/Mike_Button.png" alt="score mike" class="h-[26px] mr-2">
+              <p class="text-white font-medium text-lg">12,000</p>
+            </article>
+          </button>
+        </section>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

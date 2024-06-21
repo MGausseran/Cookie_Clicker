@@ -1,5 +1,7 @@
 let multiplicateur = 1;
 let scoreParClic = 1;
+let intervalAutoClic = 1000; // Intervalle en millisecondes pour le clic automatique
+let autoClicActive = false; // Variable pour vérifier si le clic automatique est activé
 let score = parseInt(document.getElementById("points").textContent);
 
 /*On définit au préalable les prix des différents multiplicateurs*/
@@ -7,6 +9,7 @@ let prixMultiX2 = 5;
 let prixMultiX3 = 500;
 let prixMultiX4 = 1000;
 let prixBonus = 5000;
+let prixAutoclic = 12000;
 
 /*Pour chaque multiplicateur (identifié ici selon la valeur), son prix sera multiplié par sa valeur au clic sur le bouton*/
 
@@ -15,6 +18,7 @@ function augmenterPrix(valeur) {
     if (valeur === 3) prixMultiX3 *= 3;
     if (valeur === 4) prixMultiX4 *= 4;
     if (valeur === 200) prixBonus *= 200;
+    if (valeur === 500) prixAutoclic *= 500;
 }
 
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
@@ -24,6 +28,7 @@ function verifierBoutons() {
     document.getElementById("X3").disabled = score < prixMultiX3;
     document.getElementById("X4").disabled = score < prixMultiX4;
     document.getElementById("XBonus").disabled = score < prixBonus;
+    document.getElementById("Autoclic").disabled = score < prixAutoclic;
 }
 
 setInterval(verifierBoutons, 100);
@@ -45,7 +50,14 @@ function ajouterMultiplicateur(valeur, prix) {
     }
 }
 
-
+function activerAutoClic() {
+    autoClicActive = true;
+    setInterval(function () {
+        score += scoreParClic * multiplicateur;
+        document.getElementById("points").textContent = score;
+        console.log("Auto Clic: " + score);
+    }, intervalAutoClic);
+}
 
 /* Au clic sur le bouton Mike, le score augmente de 1 X les cumuls de multiplicateur */
 document.getElementById("Mike").addEventListener("click", function () {
@@ -72,7 +84,27 @@ document.getElementById("X4").addEventListener("click", function () {
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
-    ajouterMultiplicateur(200, prixBonus);
-    augmenterPrix(200)
-    setTimeout(30000);
-})
+    alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
+    let originalMultiplicateur = multiplicateur;
+    multiplicateur *= 2; 
+
+    setTimeout(function () {
+        multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
+        alert("Le bonus de 200% est terminé.");
+    }, 30000);
+
+    augmenterPrix(200);
+});
+
+/* Ajout de l'événement pour le clic automatique */
+document.getElementById("Autoclic").addEventListener("click", function () {
+    if (score >= prixAutoclic) {
+        score -= prixAutoclic;
+        document.getElementById("points").textContent = score;
+        activerAutoClic();
+        augmenterPrix(500);
+        alert("Clic automatique activé ! Un clic sera ajouté toutes les " + (intervalAutoClic / 1000) + " secondes.");
+    } else {
+        alert("Vous n'avez pas assez de Mikes pour acheter le clic automatique !");
+    }
+});

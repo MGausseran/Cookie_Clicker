@@ -69,22 +69,26 @@ document.getElementById("Mike").addEventListener("click", function () {
 
 document.getElementById("X2").addEventListener("click", function () {
     ajouterMultiplicateur(2, prixMultiX2);
+    document.getElementById("points").textContent = score;
     augmenterPrix(2)
 
 })
 
 document.getElementById("X3").addEventListener("click", function () {
     ajouterMultiplicateur(3, prixMultiX3);
+    document.getElementById("points").textContent = score;
     augmenterPrix(3)
 })
 
 document.getElementById("X4").addEventListener("click", function () {
     ajouterMultiplicateur(4, prixMultiX4);
+    document.getElementById("points").textContent = score;
     augmenterPrix(4)
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
     alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
+    document.getElementById("points").textContent = score;
     let originalMultiplicateur = multiplicateur;
     multiplicateur *= 2; 
 

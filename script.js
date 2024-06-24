@@ -9,7 +9,7 @@ let prixMultiX2 = 5;
 let prixMultiX3 = 500;
 let prixMultiX4 = 1000;
 let prixBonus = 5000;
-let prixAutoclic = 12000;
+let prixAutoclick = 12000;
 
 /*Pour chaque multiplicateur (identifié ici selon la valeur), son prix sera multiplié par sa valeur au clic sur le bouton*/
 
@@ -18,7 +18,7 @@ function augmenterPrix(valeur) {
     if (valeur === 3) prixMultiX3 *= 3;
     if (valeur === 4) prixMultiX4 *= 4;
     if (valeur === 200) prixBonus *= 200;
-    if (valeur === 500) prixAutoclic *= 500;
+    if (valeur === 500) prixAutoclick *= 500;
 }
 
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
@@ -28,7 +28,7 @@ function verifierBoutons() {
     document.getElementById("X3").disabled = score < prixMultiX3;
     document.getElementById("X4").disabled = score < prixMultiX4;
     document.getElementById("XBonus").disabled = score < prixBonus;
-    document.getElementById("Autoclic").disabled = score < prixAutoclic;
+    document.getElementById("Autoclick").disabled = score < prixAutoclick;
 }
 
 setInterval(verifierBoutons, 100);
@@ -113,9 +113,9 @@ document.getElementById("XBonus").addEventListener("click", function () {
 });
 
 /* Ajout de l'événement pour le clic automatique */
-document.getElementById("Autoclic").addEventListener("click", function () {
-    if (score >= prixAutoclic) {
-        score -= prixAutoclic;
+document.getElementById("XAuto").addEventListener("click", function () {
+    if (score >= prixAutoclick) {
+        score -= prixAutoclick;
         document.getElementById("points").textContent = score;
         activerAutoClic();
         augmenterPrix(500);

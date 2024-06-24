@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+main{
+  display: flex;
+  width: 80%;
+  height: 100%;
+}
+main .ScoreMike{
+  background-color: red;
+  width: 50%;
+  padding: 24px;
+}
+main .ScoreMike h1{
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+main .ScoreMike #Mike{
+  margin-top: 7px;
+  padding: 8px 12px 8px 12px;
+}
+main .Upgrade{
+  background-color: blue;
+  width: 50%;
+}
+main .Upgrade .shop{
+  display: flex;
+  flex-direction: column;
+}
+main .Upgrade .shop .button{
+
+  padding: 24px;
+}
+

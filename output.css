@@ -761,6 +761,10 @@ html {
   margin-left: 1.5rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -942,6 +946,10 @@ html {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-6\/12 {
+  width: 50%;
 }
 
 .w-\[699px\] {

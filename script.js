@@ -33,6 +33,17 @@ function verifierBoutons() {
 
 setInterval(verifierBoutons, 100);
 
+function secouerBouton() {
+    let boutonMike = document.querySelector(".Mike_Button");
+    boutonMike.classList.add("animate__animated", "animate__shakeX");
+    
+    // Supprimer les classes d'animation après 0.5 secondes
+    setTimeout(() => {
+        boutonMike.classList.remove("animate__animated", "animate__shakeX");
+    }, 500);
+}
+
+
 
 /*On ajoute ensuite les multiplicateurs, à condition que le score soit assez élevé pour les acheter*/
 function ajouterMultiplicateur(valeur, prix) {
@@ -63,6 +74,7 @@ function activerAutoClic() {
 document.getElementById("Mike").addEventListener("click", function () {
     score += scoreParClic * multiplicateur;
     document.getElementById("points").textContent = score;
+    secouerBouton();
     console.log(score)
 }
 )
@@ -112,3 +124,4 @@ document.getElementById("Autoclic").addEventListener("click", function () {
         alert("Vous n'avez pas assez de Mikes pour acheter le clic automatique !");
     }
 });
+

@@ -8,10 +8,7 @@
   }
 }
 ::-webkit-scrollbar {
-  @apply w-[4px]; 
-  @apply h-[40px];
-  @apply hover:w-[32px];
-  @apply hover:h-[80px];
+  @apply w-[6px];
 }
 ::-webkit-scrollbar-track {
   @apply hidden;
@@ -19,6 +16,4 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-400 rounded;
   @apply hover:bg-gray-500;
-  @apply hover:w-[32px];
-  @apply hover:h-[80px];
 }

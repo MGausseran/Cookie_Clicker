@@ -19,7 +19,24 @@ function augmenterPrix(valeur) {
     if (valeur === 4) prixMultiX4 *= 4;
     if (valeur === 200) prixBonus *= 200;
     if (valeur === 500) prixAutoclick *= 500;
+    console.log("Prix mis à jour : ", {
+        prixMultiX2,
+        prixMultiX3,
+        prixMultiX4,
+        prixBonus,
+        prixAutoclick
+    });
 }
+
+/*Après chaque chaque achat, le prix affiché se mettre à jour pour va prendre la valeur du prix du multiplicateur renseignée dans f:augmenterPrix(valeur)*/
+function mettreAJourPrix() {
+    document.getElementById("prixMultiX2").textContent = prixMultiX2;
+    document.getElementById("prixMultiX3").textContent = prixMultiX3;
+    document.getElementById("prixMultiX4").textContent = prixMultiX4;
+    document.getElementById("prixBonus").textContent = prixBonus;
+    document.getElementById("prixAutoclick").textContent = prixAutoclick;
+}
+
 
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
 /*S'il est trop bas, le bouton d'achat est désactivé*/
@@ -124,20 +141,23 @@ document.getElementById("Mike").addEventListener("click", function () {
 document.getElementById("X2").addEventListener("click", function () {
     ajouterMultiplicateur(2, prixMultiX2);
     document.getElementById("points").textContent = score;
-    augmenterPrix(2)
+    augmenterPrix(2);
+    mettreAJourPrix();
 
 })
 
 document.getElementById("X3").addEventListener("click", function () {
     ajouterMultiplicateur(3, prixMultiX3);
     document.getElementById("points").textContent = score;
-    augmenterPrix(3)
+    augmenterPrix(3);
+    mettreAJourPrix();
 })
 
 document.getElementById("X4").addEventListener("click", function () {
     ajouterMultiplicateur(4, prixMultiX4);
     document.getElementById("points").textContent = score;
     augmenterPrix(4)
+    mettreAJourPrix();
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
@@ -152,6 +172,7 @@ document.getElementById("XBonus").addEventListener("click", function () {
     }, 30000);
 
     augmenterPrix(200);
+    mettreAJourPrix()
 });
 
 /* Ajout de l'événement pour le clic automatique */

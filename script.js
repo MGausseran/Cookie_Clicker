@@ -5,6 +5,7 @@ let autoClicActive = false; // Variable pour vérifier si le clic automatique es
 let score = parseInt(document.getElementById("points").textContent);
 
 /*On définit au préalable les prix des différents multiplicateurs*/
+let prixMultiX1 = 2;
 let prixMultiX2 = 5;
 let prixMultiX3 = 500;
 let prixMultiX4 = 1000;
@@ -14,6 +15,7 @@ let prixAutoclic = 12000;
 /*Pour chaque multiplicateur (identifié ici selon la valeur), son prix sera multiplié par sa valeur au clic sur le bouton*/
 
 function augmenterPrix(valeur) {
+    if (valeur === 2) prixMultiX1 *= 2;
     if (valeur === 2) prixMultiX2 *= 2;
     if (valeur === 3) prixMultiX3 *= 3;
     if (valeur === 4) prixMultiX4 *= 4;
@@ -25,6 +27,7 @@ function augmenterPrix(valeur) {
 /*S'il est trop bas, le bouton d'achat est désactivé*/
 
 // function verifierBoutons() {
+//     document.getElementById("X1").disabled = score < prixMultiX1;
 //     document.getElementById("X2").disabled = score < prixMultiX2;
 //     document.getElementById("X3").disabled = score < prixMultiX3;
 //     document.getElementById("X4").disabled = score < prixMultiX4;
@@ -80,7 +83,18 @@ document.getElementById("Mike").addEventListener("click", function () {
 }
 )
 document.getElementById("X1").addEventListener("click", function () {
-    document.getElementById("XI1").style.display = "flex";
+    let idel = document.getElementById("XI1");
+    let elcounter=document.getElementById("XI1Cnt");
+    if (getComputedStyle(idel).display==="none"){
+        idel.style.display = "flex";
+    }else{
+        let counter = parseInt(elcounter.textContent, 10) || 0;
+        counter++;
+        elcounter.textContent = counter;
+    }
+    ajouterMultiplicateur(2, prixMultiX1);
+    document.getElementById("points").textContent = score;
+    augmenterPrix(2)
 })
 document.getElementById("X2").addEventListener("click", function () {
     let idel = document.getElementById("XI2");
@@ -90,7 +104,7 @@ document.getElementById("X2").addEventListener("click", function () {
     }else{
         let counter = parseInt(elcounter.textContent, 10) || 0;
         counter++;
-        if (counter<=5) elcounter.textContent = counter;
+        elcounter.textContent = counter;
     }
     ajouterMultiplicateur(2, prixMultiX2);
     document.getElementById("points").textContent = score;
@@ -105,7 +119,7 @@ document.getElementById("X3").addEventListener("click", function () {
     }else{
         let counter = parseInt(elcounter.textContent, 10) || 0;
         counter++;
-        if (counter<=5) elcounter.textContent = counter;
+        elcounter.textContent = counter;
     };
     ajouterMultiplicateur(3, prixMultiX3);
     document.getElementById("points").textContent = score;
@@ -120,7 +134,7 @@ document.getElementById("X4").addEventListener("click", function () {
     }else{
         let counter = parseInt(elcounter.textContent, 10) || 0;
         counter++;
-        if (counter<=5) elcounter.textContent = counter;
+        elcounter.textContent = counter;
     }
     ajouterMultiplicateur(4, prixMultiX4);
     document.getElementById("points").textContent = score;
@@ -162,7 +176,7 @@ document.getElementById("XAuto").addEventListener("click", function () {
         }else{
             let counter = parseInt(elcounter.textContent, 10) || 0;
             counter++;
-            if (counter<2) elcounter.textContent = counter;
+            elcounter.textContent = counter;
         }
         document.getElementById("points").textContent = score;
         activerAutoClic();

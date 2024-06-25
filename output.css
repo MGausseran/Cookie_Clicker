@@ -2972,3 +2972,10 @@ html {
     }
   }
 }
+
+.disabled-button {
+  background-color: red !important; 
+  color: white !important;
+  cursor: not-allowed;
+  opacity: 0.5;
+}

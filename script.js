@@ -24,12 +24,55 @@ function augmenterPrix(valeur) {
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
 /*S'il est trop bas, le bouton d'achat est désactivé*/
 function verifierBoutons() {
-    document.getElementById("X2").disabled = score < prixMultiX2;
-    document.getElementById("X3").disabled = score < prixMultiX3;
-    document.getElementById("X4").disabled = score < prixMultiX4;
-    document.getElementById("XBonus").disabled = score < prixBonus;
-    document.getElementById("Autoclick").disabled = score < prixAutoclick;
+    const boutonX2 = document.getElementById("X2");
+    const boutonX3 = document.getElementById("X3");
+    const boutonX4 = document.getElementById("X4");
+    const boutonXBonus = document.getElementById("XBonus");
+    const boutonXAuto = document.getElementById("XAuto");
+    /*Chaque bouton est ici stocké dans une variable*/
+
+    if (score < prixMultiX2) {
+        boutonX2.disabled = true;
+        boutonX2.classList.add("disabled-button");
+    } else {
+        boutonX2.disabled = false;
+        boutonX2.classList.remove("disabled-button");
+    }
+    /*Ensuite, chaque bouton est inspecté : si le score est inférieur à son prix, alors le bouton est désactive. Sinon, il est rendu cliquable.*/
+
+    if (score < prixMultiX3) {
+        boutonX3.disabled = true;
+        boutonX3.classList.add("disabled-button");
+    } else {
+        boutonX3.disabled = false;
+        boutonX3.classList.remove("disabled-button");
+    }
+
+    if (score < prixMultiX4) {
+        boutonX4.disabled = true;
+        boutonX4.classList.add("disabled-button");
+    } else {
+        boutonX4.disabled = false;
+        boutonX4.classList.remove("disabled-button");
+    }
+
+    if (score < prixBonus) {
+        boutonXBonus.disabled = true;
+        boutonXBonus.classList.add("disabled-button");
+    } else {
+        boutonXBonus.disabled = false;
+        boutonXBonus.classList.remove("disabled-button");
+    }
+
+    if (score < prixAutoclick) {
+        boutonXAuto.disabled = true;
+        boutonXAuto.classList.add("disabled-button");
+    } else {
+        boutonXAuto.disabled = false;
+        boutonXAuto.classList.remove("disabled-button");
+    }
 }
+
 
 setInterval(verifierBoutons, 100);
 
@@ -42,7 +85,6 @@ function secouerBouton() {
         boutonMike.classList.remove("animate__animated", "animate__shakeX");
     }, 500);
 }
-
 
 
 /*On ajoute ensuite les multiplicateurs, à condition que le score soit assez élevé pour les acheter*/

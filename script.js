@@ -23,15 +23,16 @@ function augmenterPrix(valeur) {
 
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
 /*S'il est trop bas, le bouton d'achat est désactivé*/
-function verifierBoutons() {
-    document.getElementById("X2").disabled = score < prixMultiX2;
-    document.getElementById("X3").disabled = score < prixMultiX3;
-    document.getElementById("X4").disabled = score < prixMultiX4;
-    document.getElementById("XBonus").disabled = score < prixBonus;
-    document.getElementById("Autoclic").disabled = score < prixAutoclic;
-}
 
-setInterval(verifierBoutons, 100);
+// function verifierBoutons() {
+//     document.getElementById("X2").disabled = score < prixMultiX2;
+//     document.getElementById("X3").disabled = score < prixMultiX3;
+//     document.getElementById("X4").disabled = score < prixMultiX4;
+//     document.getElementById("XBonus").disabled = score < prixBonus;
+//     document.getElementById("Autoclic").disabled = score < prixAutoclic;
+// }
+
+// setInterval(verifierBoutons, 100);
 
 function secouerBouton() {
     let boutonMike = document.querySelector(".Mike_Button");
@@ -78,27 +79,64 @@ document.getElementById("Mike").addEventListener("click", function () {
     console.log(score)
 }
 )
-
+document.getElementById("X1").addEventListener("click", function () {
+    document.getElementById("XI1").style.display = "flex";
+})
 document.getElementById("X2").addEventListener("click", function () {
+    let idel = document.getElementById("XI2");
+    let elcounter=document.getElementById("XI2Cnt");
+    if (getComputedStyle(idel).display==="none"){
+        idel.style.display = "flex";
+    }else{
+        let counter = parseInt(elcounter.textContent, 10) || 0;
+        counter++;
+        if (counter<=5) elcounter.textContent = counter;
+    }
     ajouterMultiplicateur(2, prixMultiX2);
     document.getElementById("points").textContent = score;
     augmenterPrix(2)
-
 })
 
 document.getElementById("X3").addEventListener("click", function () {
+    let idel = document.getElementById("XI3");
+    let elcounter=document.getElementById("XI3Cnt");
+    if (getComputedStyle(idel).display==="none"){
+        idel.style.display = "flex";
+    }else{
+        let counter = parseInt(elcounter.textContent, 10) || 0;
+        counter++;
+        if (counter<=5) elcounter.textContent = counter;
+    };
     ajouterMultiplicateur(3, prixMultiX3);
     document.getElementById("points").textContent = score;
     augmenterPrix(3)
 })
 
 document.getElementById("X4").addEventListener("click", function () {
+    let idel = document.getElementById("XI4");
+    let elcounter=document.getElementById("XI4Cnt");
+    if (getComputedStyle(idel).display==="none"){
+        idel.style.display = "flex";
+    }else{
+        let counter = parseInt(elcounter.textContent, 10) || 0;
+        counter++;
+        if (counter<=5) elcounter.textContent = counter;
+    }
     ajouterMultiplicateur(4, prixMultiX4);
     document.getElementById("points").textContent = score;
     augmenterPrix(4)
 })
 
 document.getElementById("XBonus").addEventListener("click", function () {
+    let idel = document.getElementById("XIBonus");
+    let elcounter=document.getElementById("XIBonusCnt");
+    if (getComputedStyle(idel).display==="none"){
+        idel.style.display = "flex";
+    }else{
+        let counter = parseInt(elcounter.textContent, 10) || 0;
+        counter++;
+        if (counter<2) elcounter.textContent = counter;
+    }
     alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
     document.getElementById("points").textContent = score;
     let originalMultiplicateur = multiplicateur;
@@ -106,6 +144,7 @@ document.getElementById("XBonus").addEventListener("click", function () {
 
     setTimeout(function () {
         multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
+        idel.style.display = "none";
         alert("Le bonus de 200% est terminé.");
     }, 30000);
 
@@ -113,9 +152,18 @@ document.getElementById("XBonus").addEventListener("click", function () {
 });
 
 /* Ajout de l'événement pour le clic automatique */
-document.getElementById("Autoclic").addEventListener("click", function () {
+document.getElementById("XAuto").addEventListener("click", function () {
     if (score >= prixAutoclic) {
         score -= prixAutoclic;
+        let idel = document.getElementById("XIAuto");
+        let elcounter=document.getElementById("XIAutoCnt");
+        if (getComputedStyle(idel).display==="none"){
+            idel.style.display = "flex";
+        }else{
+            let counter = parseInt(elcounter.textContent, 10) || 0;
+            counter++;
+            if (counter<2) elcounter.textContent = counter;
+        }
         document.getElementById("points").textContent = score;
         activerAutoClic();
         augmenterPrix(500);

@@ -967,6 +967,10 @@ html {
   height: 570px;
 }
 
+.h-\[82\.53\%\] {
+  height: 82.53%;
+}
+
 .h-full {
   height: 100%;
 }
@@ -2325,8 +2329,8 @@ html {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
-.leading-3 {
-  line-height: .75rem;
+.leading-\[18px\] {
+  line-height: 18px;
 }
 
 .leading-\[80px\] {
@@ -2335,10 +2339,6 @@ html {
 
 .leading-none {
   line-height: 1;
-}
-
-.leading-\[18px\] {
-  line-height: 18px;
 }
 
 .text-\[\#336699\]\/\[\.35\] {
@@ -2924,10 +2924,6 @@ html {
 
   .sm\:leading-\[170px\] {
     line-height: 170px;
-  }
-
-  .sm\:leading-\[18px\] {
-    line-height: 18px;
   }
 
   .sm\:underline {

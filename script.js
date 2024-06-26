@@ -10,7 +10,7 @@ let prixMultiX2 = 5;
 let prixMultiX3 = 500;
 let prixMultiX4 = 1000;
 let prixBonus = 5000;
-let prixAutoclic = 12000;
+let prixAutoclick = 12000;
 
 /*Pour chaque multiplicateur (identifié ici selon la valeur), son prix sera multiplié par sa valeur au clic sur le bouton*/
 
@@ -20,22 +20,22 @@ function augmenterPrix(valeur) {
     if (valeur === 3) prixMultiX3 *= 3;
     if (valeur === 4) prixMultiX4 *= 4;
     if (valeur === 200) prixBonus *= 200;
-    if (valeur === 500) prixAutoclic *= 500;
+    if (valeur === 500) prixAutoclick *= 500;
 }
 
 /*On vérifie toutes les 100ms si le score est suffisamment haut pour acheter ou pas un multiplicateur*/
 /*S'il est trop bas, le bouton d'achat est désactivé*/
 
-// function verifierBoutons() {
-//     document.getElementById("X1").disabled = score < prixMultiX1;
-//     document.getElementById("X2").disabled = score < prixMultiX2;
-//     document.getElementById("X3").disabled = score < prixMultiX3;
-//     document.getElementById("X4").disabled = score < prixMultiX4;
-//     document.getElementById("XBonus").disabled = score < prixBonus;
-//     document.getElementById("Autoclic").disabled = score < prixAutoclic;
-// }
+function verifierBoutons() {
+    document.getElementById("X1").disabled = score < prixMultiX1;
+    document.getElementById("X2").disabled = score < prixMultiX2;
+    document.getElementById("X3").disabled = score < prixMultiX3;
+    document.getElementById("X4").disabled = score < prixMultiX4;
+    document.getElementById("XBonus").disabled = score < prixBonus;
+    document.getElementById("Autoclic").disabled = score < prixAutoclic;
+}
 
-// setInterval(verifierBoutons, 100);
+setInterval(verifierBoutons, 100);
 
 function secouerBouton() {
     let boutonMike = document.querySelector(".Mike_Button");
@@ -46,9 +46,6 @@ function secouerBouton() {
         boutonMike.classList.remove("animate__animated", "animate__shakeX");
     }, 500);
 }
-
-
-
 /*On ajoute ensuite les multiplicateurs, à condition que le score soit assez élevé pour les acheter*/
 function ajouterMultiplicateur(valeur, prix) {
     /*Si le score est supérieur ou égal au prix défini dans les variables globales, alors l'achat est possible*/

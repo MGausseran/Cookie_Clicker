@@ -971,6 +971,11 @@ html {
   height: 82.53%;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .h-full {
   height: 100%;
 }

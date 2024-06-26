@@ -47,7 +47,6 @@ function mettreAJourPrix() {
 /*S'il est trop bas, le bouton d'achat est désactivé*/
 
 function verifierBoutons() {
-<<<<<<< HEAD
     const boutonX2 = document.getElementById("X2");
     const boutonX3 = document.getElementById("X3");
     const boutonX4 = document.getElementById("X4");
@@ -95,14 +94,6 @@ function verifierBoutons() {
         boutonXAuto.disabled = false;
         boutonXAuto.classList.remove("disabled-button");
     }
-=======
-    document.getElementById("X1").disabled = score < prixMultiX1;
-    document.getElementById("X2").disabled = score < prixMultiX2;
-    document.getElementById("X3").disabled = score < prixMultiX3;
-    document.getElementById("X4").disabled = score < prixMultiX4;
-    document.getElementById("XBonus").disabled = score < prixBonus;
-    document.getElementById("Autoclic").disabled = score < prixAutoclic;
->>>>>>> 1c14e6c807b697d9c608e4dd7bfbf6abd8225936
 }
 
 
@@ -116,7 +107,6 @@ function secouerBouton() {
         boutonMike.classList.remove("animate__animated", "animate__shakeX");
     }, 500);
 }
-<<<<<<< HEAD
 
 function updateMultiplicateurDisplay() {
     multiplicateurElement.textContent = multiplicateur;
@@ -131,9 +121,6 @@ function updateScoreBySec() {
     }
 }
 
-
-=======
->>>>>>> 1c14e6c807b697d9c608e4dd7bfbf6abd8225936
 /*On ajoute ensuite les multiplicateurs, à condition que le score soit assez élevé pour les acheter*/
 function ajouterMultiplicateur(valeur, prix) {
     if (score >= prix) {
@@ -184,7 +171,6 @@ document.getElementById("X1").addEventListener("click", function () {
     augmenterPrix(2)
 })
     console.log(score);
-});
 
 document.getElementById("X2").addEventListener("click", function () {
     let idel = document.getElementById("XI2");
@@ -200,14 +186,8 @@ document.getElementById("X2").addEventListener("click", function () {
     document.getElementById("points").textContent = score;
     augmenterPrix(2);
 });
-<<<<<<< HEAD
     augmenterPrix(2);
     mettreAJourPrix();
-
-=======
-    augmenterPrix(2)
->>>>>>> 1c14e6c807b697d9c608e4dd7bfbf6abd8225936
-})
 
 document.getElementById("X3").addEventListener("click", function () {
     let idel = document.getElementById("XI3");
@@ -225,7 +205,6 @@ document.getElementById("X3").addEventListener("click", function () {
     mettreAJourPrix();
 })
     augmenterPrix(3);
-});
 
 document.getElementById("X4").addEventListener("click", function () {
     let idel = document.getElementById("XI4");
@@ -239,8 +218,6 @@ document.getElementById("X4").addEventListener("click", function () {
     }
     ajouterMultiplicateur(4, prixMultiX4);
     document.getElementById("points").textContent = score;
-    augmenterPrix(4);
-});
     augmenterPrix(4)
     mettreAJourPrix();
 })
@@ -254,34 +231,26 @@ document.getElementById("XBonus").addEventListener("click", function () {
         multiplicateur *= 2;
         updateMultiplicateurDisplay();
         updateScoreBySec(); // Mise à jour du score par seconde après activation du bonus
-    let idel = document.getElementById("XIBonus");
-    let elcounter=document.getElementById("XIBonusCnt");
-    if (getComputedStyle(idel).display==="none"){
-        idel.style.display = "flex";
-    }else{
-        let counter = parseInt(elcounter.textContent, 10) || 0;
-        counter++;
-        if (counter<2) elcounter.textContent = counter;
-    }
-    alert("Bonus activé ! Vous bénéficiez d'un multiplicateur de 200% pendant 30 secondes.");
-    document.getElementById("points").textContent = score;
-    let originalMultiplicateur = multiplicateur;
-    multiplicateur *= 2; 
-
+            let idel = document.getElementById("XIBonus");
+            let elcounter=document.getElementById("XIBonusCnt");
+            if (getComputedStyle(idel).display==="none"){
+                idel.style.display = "flex";
+            }else{
+                let counter = parseInt(elcounter.textContent, 10) || 0;
+                counter++;
+                if (counter<2) elcounter.textContent = counter;
+            }
+    
         setTimeout(function () {
             multiplicateur = originalMultiplicateur;
             alert("Le bonus de 200% est terminé.");
+            idel.style.display = "none";
             updateMultiplicateurDisplay();
             updateScoreBySec(); // Mise à jour du score par seconde après expiration du bonus
         }, 30000);
-    setTimeout(function () {
-        multiplicateur = originalMultiplicateur; // Réinitialiser le multiplicateur après 30 secondes
-        idel.style.display = "none";
-        alert("Le bonus de 200% est terminé.");
-    }, 30000);
 
-    augmenterPrix(200);
-    mettreAJourPrix()
+        augmenterPrix(200);
+        mettreAJourPrix()
         augmenterPrix(200);
     } else {
         alert("Vous n'avez pas assez de Mikes pour acheter ce bonus !");
@@ -289,8 +258,8 @@ document.getElementById("XBonus").addEventListener("click", function () {
 });
 
 document.getElementById("XAuto").addEventListener("click", function () {
-    if (score >= prixAutoclic) {
-        score -= prixAutoclic;
+    if (score >= prixAutoclick) {
+        score -= prixAutoclick;
         let idel = document.getElementById("XIAuto");
         let elcounter=document.getElementById("XIAutoCnt");
         if (getComputedStyle(idel).display==="none"){

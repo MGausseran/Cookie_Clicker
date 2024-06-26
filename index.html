@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-screen w-screen">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="./output.css">
   <title>Mike Clicker</title>
 </head>
-<body class="bg-darkblue sm:h-screen w-screen flex items-center">
+<body class="bg-darkblue h-screen w-screen flex items-center">
   <main class="container mx-auto flex sm:flex-row flex-col sm:h-[94.73106%] h-full w-[80%]"> 
-    <section class="title-part sm:mr-3 mr-0 sm:w-[49.21875%] sm:order-first order-last flex flex-col justify-between border-2 border-white border-solid rounded-3xl">
-      <section>
+    <section class="sm:w-[49.21875%] h-full title-part sm:mr-3 mr-0 sm:order-first order-last flex flex-col justify-between border-2 border-white border-solid rounded-3xl">
+      <section class="h-fit">
         <article class="setting-windows flex justify-end items-center border-b-2 h-[49px] w-full">
           <img src="image/reduire_icon.svg" alt="icon de reduction" class="mr-3.5">
           <img src="image/full_width.svg" alt="full width windows" class="mr-3.5">
@@ -22,16 +22,17 @@
           <button class="text-white font-medium bg-lightblue uppercase py-3 px-9 rounded-3xl ml-6 sm:mb-0 mb-3">GOTY</button> 
         </article>
       </section>
-      
-      <article class="flex flex-col items-end">
+      <article class="flex flex-col items-end h-fit">
         <p class=" text-white uppercase font-medium text-justify text-sm mb-6 leading-[18px] px-6">Plongez dans l'univers déjanté de "Mike's Web Dev Bootcamp", un jeu web addictif où chaque clic sur la tête de Mike, le coach charismatique, vous rapproche de la maîtrise du développement web. Incarnez un apprenti développeur motivé, prêt à absorber les connaissances de Mike et à devenir un expert du code. Commencez par des clics frénétiques pour accumuler des points de compétence, puis débloquez des formations avancées, des outils de développement et des mentors pour booster votre apprentissage. Découvrez des défis de codage, des quêtes spéciales et des bonus délirants pour pimenter votre parcours. Affrontez vos amis, participez à des hackathons virtuels et hissez-vous au sommet du classement pour devenir le développeur web le plus respecté de la communauté de Mike !</p>
         <a href="game.html">
           <img class="w-12 h-12 mr-6 mb-6" src="image/Arrow - Play Game.svg" alt="arrow - PlayGame">
         </a>
       </article>
     </section>
-    <section class="image sm:w-[49.21875%] sm:ml-3 sm:mb-0 mb-3 ml-0 sm:order-last order-first">
-      <img src="image/GroupeMike_smallsize.png" alt="Mosaique de Mike">
+    <section class="image sm:w-[49.21875%] sm:ml-3 sm:my-0 my-3 ml-0 sm:order-last order-first">
+      <a href="game.html">  
+        <img src="image/GroupeMike_smallsize.png" alt="Mosaique de Mike">
+      </a>
     </section>
   </main>
 </body>

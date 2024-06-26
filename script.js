@@ -168,7 +168,8 @@ document.getElementById("X1").addEventListener("click", function () {
     }
     ajouterMultiplicateur(2, prixMultiX1);
     document.getElementById("points").textContent = score;
-    augmenterPrix(2)
+    augmenterPrix(1)
+    mettreAJourPrix()
 })
     console.log(score);
 
@@ -185,9 +186,8 @@ document.getElementById("X2").addEventListener("click", function () {
     ajouterMultiplicateur(2, prixMultiX2);
     document.getElementById("points").textContent = score;
     augmenterPrix(2);
-});
-    augmenterPrix(2);
     mettreAJourPrix();
+});
 
 document.getElementById("X3").addEventListener("click", function () {
     let idel = document.getElementById("XI3");
@@ -204,7 +204,6 @@ document.getElementById("X3").addEventListener("click", function () {
     augmenterPrix(3);
     mettreAJourPrix();
 })
-    augmenterPrix(3);
 
 document.getElementById("X4").addEventListener("click", function () {
     let idel = document.getElementById("XI4");
@@ -251,7 +250,6 @@ document.getElementById("XBonus").addEventListener("click", function () {
 
         augmenterPrix(200);
         mettreAJourPrix()
-        augmenterPrix(200);
     } else {
         alert("Vous n'avez pas assez de Mikes pour acheter ce bonus !");
     }
